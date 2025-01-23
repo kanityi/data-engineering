@@ -1,0 +1,25 @@
+services:
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: sbu
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: nyc_taxi
+    volumes:
+      - postgres-db-volume:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready"]
+      interval: 1m30s
+      timeout: 30s
+      retries: 5
+      start_period: 30s
+    restart: always
+
+# docker run -it \
+#   -e POSTGRES_USER="root" \
+#   -e POSTGRES_PASSWORD="root" \
+#   -e POSTGRES_DB="ny_taxi" \
+#   -e ny_taxi_postgres_db \
+#   -v $(pwd)/module-1/ny_taxi_postgres_db:/var/lib/postgresql/data \
+#   -p 5432:5432 \
+#   postgres:13
