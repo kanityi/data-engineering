@@ -8,8 +8,10 @@
     pkgs.docker
     pkgs.systemd
     # pkgs.go
-    # pkgs.python311
-    # pkgs.python311Packages.pip
+    pkgs.python312
+    pkgs.python312Packages.pip
+    pkgs.python312Packages.pandas
+    pkgs.python312Packages.ipykernel
     # pkgs.nodejs_20
     # pkgs.nodePackages.nodemon
   ];
@@ -24,6 +26,18 @@
     # Search for the extensions you want on https://open-vsx.org/ and use "publisher.id"
     extensions = [
       # "vscodevim.vim"
+      "ms-python.Python"
+      "ms-azuretools.vscode-docker"
+      "ms-python.debugpy"
+      "redhat.vscode-yaml"
+      "ms-python.black-formatter"
+      "ms-toolsai.jupyter"
+      "ms-toolsai.jupyter-keymap"
+      "ms-toolsai.jupyter-renderers"
+      "ms-toolsai.vscode-jupyter-cell-tags"
+      "ms-toolsai.vscode-jupyter-slideshow"
+      "mtxr.sqltools"
+      "mtxr.sqltools-driver-pg"
     ];
     # Enable previews
     previews = {
